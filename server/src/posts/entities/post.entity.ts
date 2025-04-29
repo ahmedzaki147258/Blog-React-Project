@@ -6,20 +6,17 @@ export class Post {
   @PrimaryGeneratedColumn({ type: 'bigint', unsigned: true })
   id: number;
 
-  @Column({
-    nullable: false
-  })
+  @Column({ nullable: false })
   title: string;
 
-  @Column({
-    nullable: false
-  })
+  @Column({ nullable: false })
   body: string;
 
-  @Column({
-    nullable: false
-  })
+  @Column({ nullable: false })
   image: string;
+
+  @Column({ nullable: false })
+  imageFileId: string;
 
   @Column({ type: 'bigint', unsigned: true })
   userId: number;

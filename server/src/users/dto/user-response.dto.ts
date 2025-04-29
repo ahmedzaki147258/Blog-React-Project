@@ -1,7 +1,8 @@
-import { Expose } from 'class-transformer';
+import { Expose, Transform  } from 'class-transformer';
 
 export class UserResponseDto {
   @Expose()
+  @Transform(({ value }) => +value)
   id: number;
 
   @Expose()

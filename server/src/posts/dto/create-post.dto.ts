@@ -1,4 +1,5 @@
-import { IsString, IsNotEmpty, IsNumber } from 'class-validator';
+import { IsString, IsNotEmpty, IsNumber, Min } from 'class-validator';
+import { Type } from 'class-transformer';
 
 export class CreatePostDto {
   @IsString()
@@ -9,10 +10,8 @@ export class CreatePostDto {
   @IsNotEmpty()
   body: string;
 
-  @IsString()
-  @IsNotEmpty()
-  image: string;
-
+  @Type(() => Number)
   @IsNumber()
+  @Min(1)
   userId: number;
 }
