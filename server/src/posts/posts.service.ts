@@ -7,10 +7,14 @@ import { Post } from './entities/post.entity';
 import { createImageKitInstance, uploadImageToImageKit } from '../utils/imagekit';
 import { plainToInstance } from 'class-transformer';
 import { PostResponseDto } from './dto/post-response.dto';
+import { User } from '../users/entities/user.entity';
 
 @Injectable()
 export class PostsService {
-  constructor(@InjectRepository(Post) private readonly postRepository: Repository<Post>) {}
+  constructor(
+    @InjectRepository(Post) private readonly postRepository: Repository<Post>,
+    @InjectRepository(User) private readonly userRepository: Repository<User>
+  ) {}
 
   async findAll(query: { page?: number; limit?: number; search?: string }) {
     const filter = {};
@@ -34,6 +38,8 @@ export class PostsService {
   }
 
   async create(createPostDto: CreatePostDto, image: Express.Multer.File) {
+    const user = await this.userRepository.findOne({ where: { id: createPostDto.userId } });
+    if (!user) throw new UnauthorizedException('User not found');
     const post = this.postRepository.create(createPostDto);
     const uploaded = await uploadImageToImageKit(image, 'posts');
     post.image = uploaded.url;
