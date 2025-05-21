@@ -1,0 +1,11 @@
+meta {
+  name: Get All Posts
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{DJANGO-URL}}/api/posts
+  body: none
+  auth: inherit
+}

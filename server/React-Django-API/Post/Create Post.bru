@@ -1,0 +1,17 @@
+meta {
+  name: Create Post
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{DJANGO-URL}}/api/posts
+  body: multipartForm
+  auth: inherit
+}
+
+body:multipart-form {
+  title: hello
+  user_id: 2
+  image: @file(D:\bird-wings-flying-feature.gif)
+}

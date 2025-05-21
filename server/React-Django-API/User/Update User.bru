@@ -1,0 +1,17 @@
+meta {
+  name: Update User
+  type: http
+  seq: 3
+}
+
+patch {
+  url: {{DJANGO-URL}}/api/users/1
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "last_name": "mohsen"
+  }
+}

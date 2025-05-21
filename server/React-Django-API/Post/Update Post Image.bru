@@ -1,0 +1,15 @@
+meta {
+  name: Update Post Image
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{DJANGO-URL}}/api/posts/5/image
+  body: multipartForm
+  auth: inherit
+}
+
+body:multipart-form {
+  image: @file(C:\Users\Azaki\Pictures\Screenshots\Screenshot 2025-05-11 011815.png)
+}

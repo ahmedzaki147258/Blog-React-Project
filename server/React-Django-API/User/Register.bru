@@ -1,0 +1,20 @@
+meta {
+  name: Register
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{DJANGO-URL}}/api/register
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "first_name": "A7med",
+    "last_name": "zaki",
+    "email": "zakii@gmail.com",
+    "password": "12345678"
+  }
+}

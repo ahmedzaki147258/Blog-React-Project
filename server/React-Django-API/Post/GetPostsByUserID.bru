@@ -1,0 +1,11 @@
+meta {
+  name: GetPostsByUserID
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{DJANGO-URL}}/api/posts/user/2
+  body: none
+  auth: inherit
+}
