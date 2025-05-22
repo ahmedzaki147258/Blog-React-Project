@@ -172,10 +172,10 @@ function Blog({ post, onUpdate, onDelete }) {
       
       {/* Delete Confirmation Dialog */}
       {isDeleteDialogOpen && (
-         <div className="fixed inset-0 bg-opacity-30 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="bg-base-100 p-6 rounded-lg shadow-xl w-full max-w-md">
-            <h3 className="text-lg font-bold mb-4">Delete Post</h3>
-            <p className="mb-6">Are you sure you want to delete this post? This action cannot be undone.</p>
+         <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-xl w-full max-w-md border border-gray-200">
+            <h3 className="text-lg font-bold mb-4 text-gray-800">Delete Post</h3>
+            <p className="mb-6 text-gray-600">Are you sure you want to delete this post? This action cannot be undone.</p>
             
             {error && (
               <div className="alert alert-error mb-4">
@@ -186,7 +186,7 @@ function Blog({ post, onUpdate, onDelete }) {
             
             <div className="flex justify-end gap-2">
               <button 
-                className="btn btn-ghost" 
+                className="btn btn-outline" 
                 onClick={() => setIsDeleteDialogOpen(false)}
                 disabled={isSubmitting}
               >
@@ -211,9 +211,9 @@ function Blog({ post, onUpdate, onDelete }) {
       
       {/* Update Title Dialog */}
       {isUpdateTitleDialogOpen && (
-         <div className="fixed inset-0 bg-opacity-30 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="bg-base-100 p-6 rounded-lg shadow-xl w-full max-w-md">
-            <h3 className="text-lg font-bold mb-4">Update Post Title</h3>
+         <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-xl w-full max-w-md border border-gray-200">
+            <h3 className="text-lg font-bold mb-4 text-gray-800">Update Post Title</h3>
             
             {error && (
               <div className="alert alert-error mb-4">
@@ -225,11 +225,11 @@ function Blog({ post, onUpdate, onDelete }) {
             <form onSubmit={handleTitleUpdate}>
               <div className="form-control mb-4">
                 <label className="label">
-                  <span className="label-text">Title</span>
+                  <span className="label-text font-medium text-gray-700">Title</span>
                 </label>
                 <input 
                   type="text" 
-                  className="input input-bordered" 
+                  className="input input-bordered bg-gray-50" 
                   value={newTitle} 
                   onChange={(e) => setNewTitle(e.target.value)} 
                   placeholder="Enter post title"
@@ -240,7 +240,7 @@ function Blog({ post, onUpdate, onDelete }) {
               <div className="flex justify-end gap-2">
                 <button 
                   type="button" 
-                  className="btn btn-ghost" 
+                  className="btn btn-outline" 
                   onClick={() => setIsUpdateTitleDialogOpen(false)}
                   disabled={isSubmitting}
                 >
@@ -266,9 +266,9 @@ function Blog({ post, onUpdate, onDelete }) {
       
       {/* Update Image Dialog */}
       {isUpdateImageDialogOpen && (
-         <div className="fixed inset-0 bg-opacity-30 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="bg-base-100 p-6 rounded-lg shadow-xl w-full max-w-md">
-            <h3 className="text-lg font-bold mb-4">Update Post Image</h3>
+         <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-xl w-full max-w-md border border-gray-200">
+            <h3 className="text-lg font-bold mb-4 text-gray-800">Update Post Image</h3>
             
             {error && (
               <div className="alert alert-error mb-4">
@@ -280,11 +280,11 @@ function Blog({ post, onUpdate, onDelete }) {
             <form onSubmit={handleImageUpdate}>
               <div className="form-control mb-6">
                 <label className="label">
-                  <span className="label-text">Image</span>
+                  <span className="label-text font-medium text-gray-700">Image</span>
                 </label>
                 <input 
                   type="file" 
-                  className="file-input file-input-bordered w-full" 
+                  className="file-input file-input-bordered w-full bg-gray-50" 
                   accept="image/*"
                   onChange={handleImageChange}
                   ref={fileInputRef}
@@ -295,14 +295,14 @@ function Blog({ post, onUpdate, onDelete }) {
                     <span className="label-text-alt text-error">{imageError}</span>
                   </label>
                 )}
-                <p className="text-xs text-base-content/70 mt-1">
+                <p className="text-xs text-gray-500 mt-1">
                   Image must be less than 2MB
                 </p>
               </div>
               
               {newImage && (
-                <div className="mb-4">
-                  <p className="text-sm font-medium mb-2">Preview:</p>
+                <div className="mb-4 bg-gray-50 p-2 rounded-md">
+                  <p className="text-sm font-medium mb-2 text-gray-700">Preview:</p>
                   <img 
                     src={URL.createObjectURL(newImage)} 
                     alt="Preview" 
@@ -314,7 +314,7 @@ function Blog({ post, onUpdate, onDelete }) {
               <div className="flex justify-end gap-2">
                 <button 
                   type="button" 
-                  className="btn btn-ghost" 
+                  className="btn btn-outline" 
                   onClick={() => setIsUpdateImageDialogOpen(false)}
                   disabled={isSubmitting}
                 >

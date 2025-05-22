@@ -147,9 +147,9 @@ export function Blogs() {
       )}
 
       {isDialogOpen && (
-         <div className="fixed inset-0 bg-opacity-30 backdrop-blur-sm flex items-center justify-center z-50">
-          <div className="bg-base-100 p-6 rounded-lg shadow-xl w-full max-w-md">
-            <h2 className="text-2xl font-bold mb-4">Create New Post</h2>
+         <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-xl w-full max-w-md border border-gray-200">
+            <h2 className="text-2xl font-bold mb-4 text-gray-800">Create New Post</h2>
             
             {submitError && (
               <div className="alert alert-error mb-4">
@@ -161,11 +161,11 @@ export function Blogs() {
             <form onSubmit={handleSubmit}>
               <div className="form-control mb-4">
                 <label className="label">
-                  <span className="label-text">Title</span>
+                  <span className="label-text font-medium text-gray-700">Title</span>
                 </label>
                 <input 
                   type="text" 
-                  className="input input-bordered" 
+                  className="input input-bordered bg-gray-50" 
                   value={title} 
                   onChange={(e) => setTitle(e.target.value)} 
                   placeholder="Enter post title"
@@ -175,11 +175,11 @@ export function Blogs() {
               
               <div className="form-control mb-6">
                 <label className="label">
-                  <span className="label-text">Image</span>
+                  <span className="label-text font-medium text-gray-700">Image</span>
                 </label>
                 <input 
                   type="file" 
-                  className="file-input file-input-bordered w-full" 
+                  className="file-input file-input-bordered w-full bg-gray-50" 
                   accept="image/*"
                   onChange={handleImageChange}
                   ref={fileInputRef}
@@ -190,14 +190,14 @@ export function Blogs() {
                     <span className="label-text-alt text-error">{imageError}</span>
                   </label>
                 )}
-                <p className="text-xs text-base-content/70 mt-1">
+                <p className="text-xs text-gray-500 mt-1">
                   Image must be less than 2MB
                 </p>
               </div>
               
               {image && (
-                <div className="mb-4">
-                  <p className="text-sm font-medium mb-2">Preview:</p>
+                <div className="mb-4 bg-gray-50 p-2 rounded-md">
+                  <p className="text-sm font-medium mb-2 text-gray-700">Preview:</p>
                   <img 
                     src={URL.createObjectURL(image)} 
                     alt="Preview" 
@@ -209,7 +209,7 @@ export function Blogs() {
               <div className="flex justify-end gap-2">
                 <button 
                   type="button" 
-                  className="btn btn-ghost" 
+                  className="btn btn-outline" 
                   onClick={() => setIsDialogOpen(false)}
                   disabled={isSubmitting}
                 >
